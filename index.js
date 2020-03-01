@@ -14,6 +14,4 @@ const higherOrderLog = (name, context) => {
     console[name] = logFn;
 };
 
-module.exports = context => {
-   methods.forEach(m => higherOrderLog(m, context));
-};
+module.exports = context => methods.forEach(m => higherOrderLog(m, context));

@@ -1,6 +1,6 @@
 {
   "name": "azure-function-log-intercept",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add console.log support to Azure Functions",
   "main": "index.js",
   "scripts": {
