@@ -1,13 +1,19 @@
 {
   "name": "azure-function-log-intercept",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Add console.log support to Azure Functions",
   "main": "index.js",
   "scripts": {
     "test": "jest",
     "quality": "eslint . --fix"
   },
-  "keywords": ["azure functions", "log", "console", "appinsights", "application insights"],
+  "keywords": [
+    "azure functions",
+    "log",
+    "console",
+    "appinsights",
+    "application insights"
+  ],
   "author": "Brian Rosamilia",
   "license": "MIT",
   "devDependencies": {
