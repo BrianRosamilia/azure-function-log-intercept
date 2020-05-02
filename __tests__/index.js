@@ -3,7 +3,8 @@ const interceptor = require('../index.js');
 describe('azure-function-log-intercept test suite', () => {
     it('Interceptor intercepts all methods', () => {
         let x = 0;
-        const context = { log(){ x++ }, warn(){ x++ }, error(){ x++ }, info(){ x++ }, };
+        const context = { log(){ x++ } };
+        context.log.warn = context.log.info = context.log.error = () => { x++ };
 
         interceptor(context);
 
@@ -18,6 +19,7 @@ describe('azure-function-log-intercept test suite', () => {
     it('Multiple Interceptor calls wont create exponential wrapping of context.log', () => {
         let x = 0;
         const context = { log(){ x++ } };
+        context.log.warn = context.log.info = context.log.error = () => { x++ };
 
         interceptor(context);
         interceptor(context);

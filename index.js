@@ -8,7 +8,14 @@ const higherOrderLog = (name, context) => {
 
     const logFn = (...params) => {
         savedMethod(...params);
-        context[name](...params);
+
+        if(context[name]){
+            context[name](...params);
+        }
+        else if(context.log[name]){
+            //Must check context.log for some of the methods (currently warn, info, error)
+            context.log[name](...params);
+        }
     };
 
     console[name] = logFn;
