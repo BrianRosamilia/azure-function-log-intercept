@@ -21,8 +21,11 @@ steps:
     inputs:
       customCommand: 'test'
       command: 'custom'
-  - task: PublishBuildArtifacts@1
-    inputs:
-      pathToPublish: $(Build.SourcesDirectory)
-      artifactName: 'azure-function-log-intercept'
+  - task: Bash@3
+    env:
+      NPM_TOKEN: $(NPM_TOKEN)
+    script: 'npm publish'
+    targetType: 'inline'
+
+
 
