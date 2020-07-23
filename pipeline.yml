@@ -1,0 +1,28 @@
+trigger:
+  - master
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '10.x'
+    displayName: 'Install Node.js'
+  - script: 'npm install'
+    displayName: 'Install Packages'
+  - task: Npm@1
+    displayName: 'Static Analysis'
+    inputs:
+      customCommand: 'run quality'
+      command: 'custom'
+  - task: Npm@1
+    displayName: 'Tests'
+    inputs:
+      customCommand: 'test'
+      command: 'custom'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: $(Build.ArtifactStagingDirectory)
+      artifactName: 'azure-function-log-intercept'
+
