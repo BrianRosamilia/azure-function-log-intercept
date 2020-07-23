@@ -22,10 +22,11 @@ steps:
       customCommand: 'test'
       command: 'custom'
   - task: Bash@3
-    env:
-      NPM_TOKEN: $(NPM_TOKEN)
-    script: 'npm publish'
-    targetType: 'inline'
+    inputs:
+      env:
+        NPM_TOKEN: $(NPM_TOKEN)
+      script: 'npm publish'
+      targetType: 'inline'
 
 
 
