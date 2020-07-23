@@ -25,6 +25,8 @@ steps:
     env:
       NPM_TOKEN: $(NPM_TOKEN)
     inputs:
-      script: 'npm publish'
+      script: |
+        printf "//registry.npmjs.org/:_authToken=${NPM_TOKEN}\n" >> ./.npmrc
+        npm publish
       targetType: 'inline'
 
