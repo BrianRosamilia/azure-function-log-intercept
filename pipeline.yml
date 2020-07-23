@@ -23,6 +23,6 @@ steps:
       command: 'custom'
   - task: PublishBuildArtifacts@1
     inputs:
-      pathToPublish: $(Build.ArtifactStagingDirectory)
+      pathToPublish: $(Build.SourcesDirectory)
       artifactName: 'azure-function-log-intercept'
 
