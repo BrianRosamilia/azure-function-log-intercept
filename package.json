@@ -7,6 +7,10 @@
     "test": "jest",
     "quality": "eslint . --fix"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrianRosamilia/azure-function-log-intercept.git"
+  },
   "keywords": [
     "azure functions",
     "log",
